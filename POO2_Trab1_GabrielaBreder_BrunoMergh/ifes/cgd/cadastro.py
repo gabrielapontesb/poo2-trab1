@@ -1,12 +1,11 @@
 from ifes.cdp.pfisica import Pfisica
-from ifes.cdp.produto import Produto
-from ifes.cdp.venda import Venda
-from ifes.cdp.fornecedor import Fornecedor
-from ifes.cdp.compra import Compra
+from ifes.cdp.pjuridica import Pjuridica
 import os
-from ifes.util.Fabrica import Fabrica
-from ifes.util.Builder import Builder
-
+from ifes.util.FabricaPessoa import FabricaPessoa
+from ifes.util.FabricaProduto import FabricaProduto
+from ifes.util.FabricaFornecedor import FabricaFornecedor
+from ifes.util.FabricaVenda import FabricaVenda
+from ifes.util.FabricaCompra import FabricaCompra
 
 class Cadastro:
 
@@ -23,13 +22,13 @@ class Cadastro:
             end = lstconteudo[3]
             tipo = lstconteudo[4]
             if (tipo.upper() == "F"):
-                cpf = int(lstconteudo[5])
-                pf = Pfisica(cod, nome, tel, end, cpf)
-                lstCliente.append(pf)
+                cpf = lstconteudo[5]
+                p = Pfisica(cod, nome, tel, end, cpf)
+                lstCliente.append(p)
             elif (tipo.upper() == "J"):
                 cnpj = lstconteudo[5]
-                pj = Pfisica(cod, nome, tel, end, cnpj)
-                lstCliente.append(pj)
+                p = Pjuridica(cod, nome, tel, end, cnpj)
+                lstCliente.append(p)
             conteudo = arqC.readline()
         return lstCliente
 
@@ -46,7 +45,7 @@ class Cadastro:
             qtdatual = int(lstconteudo[3])
             custo = float(lstconteudo[4])
             pctlucro = float(lstconteudo[5])
-            p = Produto(cod, desc, estmin, qtdatual, custo, pctlucro)
+            p = FabricaProduto.CriarProduto(self,cod, desc, estmin, qtdatual, custo, pctlucro)
             lstProduto.append(p)
             conteudo = arqP.readline()
         return lstProduto
@@ -63,7 +62,7 @@ class Cadastro:
             tel = int(lstconteudo[2])
             cod = int(lstconteudo[3])
             cnpj = lstconteudo[4]
-            f = Fornecedor(nome, end, tel, cod, cnpj)
+            f = FabricaFornecedor.CriarFornecedor(self, nome, end, tel, cod, cnpj)
             lstFornecedor.append(f)
             conteudo = arqF.readline()
         return lstFornecedor
@@ -79,7 +78,7 @@ class Cadastro:
             data = lstconteudo[1]
             produto = int(lstconteudo[2])
             qtd = int(lstconteudo[3])
-            v = Venda(cliente, data, produto, qtd)
+            v = FabricaVenda.CriarVenda(self, cliente, data, produto, qtd)
             lstVenda.append(v)
             conteudo = arqV.readline()
         return lstVenda
@@ -96,7 +95,7 @@ class Cadastro:
             codfornec = int(lstconteudo[2])
             codprod = int(lstconteudo[3])
             dtcompra = lstconteudo[4]
-            c = Compra(qtd, notafiscal, codfornec, codprod, dtcompra)
+            c = FabricaCompra.CriarCompra(self, qtd, notafiscal, codfornec, codprod, dtcompra)
             lstCompra.append(c)
             conteudo = arqC.readline()
         return lstCompra
@@ -108,11 +107,8 @@ class Cadastro:
         tel = int(input("Telefone: "))
         end = input("Endereco: ")
         tipo = input("F para fisica e J para juridica: ")
-        #fabrica = Fabrica.CriarPessoa(self,cod, nome, tel, end, tipo)
-        ajudante = Builder.CriarPessoa(self,cod, nome, tel, end, tipo)
-
-        return ajudante
-
+        fabrica = FabricaPessoa.CriarPessoa(self,cod, nome, tel, end, tipo)
+        return fabrica
 
     def cadastraProduto(self):
 
@@ -122,7 +118,7 @@ class Cadastro:
         qtdatual = int(input("Qtd atual: "))
         custo = float(input("Custo: "))
         pctlucro = int(input("Pct lucro: "))
-        p = Produto(cod, desc, estmin, qtdatual, custo, pctlucro)
+        p = FabricaProduto.CriarProduto(self,cod, desc, estmin, qtdatual, custo, pctlucro)
         return p
 
     def cadastraFornecedor(self):
@@ -131,7 +127,7 @@ class Cadastro:
         tel = int(input("Telefone: "))
         cod = int(input("Codigo: "))
         cnpj = int(input("Cnpj: "))
-        f = Fornecedor(nome, end, tel, cod, cnpj)
+        f = FabricaFornecedor.CriarFornecedor(self,nome, end, tel, cod, cnpj)
         return f
 
     def cadastraVenda(self):
@@ -139,7 +135,7 @@ class Cadastro:
         dt = input("Data: ")
         prod = int(input("Codigo do produto: "))
         qtd = int(input("Quantidade: "))
-        v = Venda(cliente, dt, prod, qtd)
+        v = FabricaVenda.CriarVenda(self, cliente, dt, prod, qtd)
         return v
 
     def cadastraCompra(self):
@@ -148,5 +144,5 @@ class Cadastro:
         codfornec = int(input("Codigo do fornecedor: "))
         codprod = int(input("Codigo do produto: "))
         dtcompra = input("Data: ")
-        c = Compra(qtd, notaf, codfornec, codprod, dtcompra)
+        c = FabricaCompra.CriarCompra(self, qtd, notaf, codfornec, codprod, dtcompra)
         return c

@@ -2,7 +2,7 @@ from ifes.cdp.pfisica import Pfisica
 from ifes.cdp.pjuridica import Pjuridica
 
 
-class Fabrica():
+class FabricaPessoa():
 
 
     def CriarPessoa(self,cod, nome, tel, end, tipo):
