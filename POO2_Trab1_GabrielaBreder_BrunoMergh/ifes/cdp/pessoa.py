@@ -6,32 +6,32 @@ class Pessoa():
         self.__tel = tel
         self.__end = end
             
-    def getCod(self):
+    def get_cod(self):
         return self.__cod
 
-    def setCod(self, cod):
+    def set_cod(self, cod):
         self.__cod = cod
 
-    def getNome(self):
+    def get_nome(self):
         return self.__nome
 
-    def setNome(self, nome):
+    def set_nome(self, nome):
         self.__nome = nome
 
-    def getTel(self):
+    def get_tel(self):
         return self.__tel
 
-    def setTel(self, tel):
+    def set_tel(self, tel):
         self.__tel = tel
 
-    def getEnd(self):
+    def get_end(self):
         return self.__end
 
-    def setEnd(self, end):
+    def set_end(self, end):
         self.__end = end
 
-    def getTipo(self):
+    def get_tipo(self):
         return self.__tipo
 
-    def setTipo(self, tipo):
+    def set_tipo(self, tipo):
         self.__tipo = tipo   

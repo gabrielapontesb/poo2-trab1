@@ -2,93 +2,98 @@ import os
 
 class Relatorio:
 
-    def apagar(self, lstFornec, lstProd, lstComp):
-        FILENAME = os.path.expanduser("~/Documents/GitHub/poo2-trab0/POO2_Trab0_GabrielaBreder_BrunoMergh/ifes/arquivos/")
+    @staticmethod
+    def apagar(lstfornec, lstprod, lstcomp):
 
-        completeName = os.path.join(FILENAME,'WriteApagar.txt')
+        FILENAME = os.path.expanduser("~/Desktop/poo2-trab1-master/POO2_Trab1_GabrielaBreder_BrunoMergh/ifes/arquivos/")
+        completename = os.path.join(FILENAME,'WriteApagar.txt')
         #valor devido aos fornecedores
-        arquivo = open(completeName, 'w')
+        arquivo = open(completename, 'w')
         arquivo.write("Fornecedor;quantia a pagar\n")
         total = 0
-        for i in range(len(lstFornec)):
-            for j in range(len(lstComp)):
-                if (lstFornec[i].getCod() == lstComp[j].getCodfornec()):
-                    for k in range(len(lstProd)):
-                        if(lstComp[j].getCodprod() == lstProd[k].getCod()):
-                            valor = lstProd[k].getCusto() * lstComp[j].getQtd()
+        for i in range(len(lstfornec)):
+            for j in range(len(lstcomp)):
+                if lstfornec[i].get_cod() == lstcomp[j].get_codfornec():
+                    for k in range(len(lstprod)):
+                        if lstcomp[j].get_codprod() == lstprod[k].get_cod():
+                            valor = lstprod[k].get_custo() * lstcomp[j].get_qtd()
                             break
 
                     total += valor
                     valor = 0
 
-            arquivo.write(str(lstFornec[i].getCod()) + ";" + str(round(total,2)) + "\n")
+            arquivo.write(str(lstfornec[i].get_cod()) + ";" + str(round(total,2)) + "\n")
             total = 0
 
-    def areceber(self, lstPessoa, lstVendas, lstProd):
+    @staticmethod
+    def areceber(lstpessoa, lstvendas, lstprod):
         #valor total de vendas
 
-        FILENAME = os.path.expanduser("~/Documents/GitHub/poo2-trab0/POO2_Trab0_GabrielaBreder_BrunoMergh/ifes/arquivos/")
-        completeName = os.path.join(FILENAME,'WriteAreceber.txt')
-        arquivo = open(completeName, 'w')
+        FILENAME = os.path.expanduser("~/Desktop/poo2-trab1-master/POO2_Trab1_GabrielaBreder_BrunoMergh/ifes/arquivos/")
+        completename = os.path.join(FILENAME,'WriteAreceber.txt')
+        arquivo = open(completename, 'w')
         arquivo.write("Cliente;quantia a receber\n")
 
         total = 0
-        for i in range(len(lstPessoa)):
+        for i in range(len(lstpessoa)):
             total = 0
-            for j in range(len(lstVendas)):
-                if (lstPessoa[i].getCod() == lstVendas[j].getCliente()):
-                    for k in range(len(lstProd)):
-                        if (lstVendas[j].getProd() == lstProd[k].getCod()):
-                            valor = (((lstProd[k].getPctlucro()/100) * lstProd[k].getCusto()) + lstProd[k].getCusto()) * lstVendas[j].getQtd()
+            for j in range(len(lstvendas)):
+                if lstpessoa[i].get_cod() == lstvendas[j].get_cliente():
+                    for k in range(len(lstprod)):
+                        if lstvendas[j].get_prod() == lstprod[k].get_cod():
+                            valor = (((lstprod[k].get_pctlucro()/100) * lstprod[k].get_custo()) + lstprod[k].get_custo()) * lstvendas[j].get_qtd()
                             break
                     total += valor
                     valor = 0
-            arquivo.write(str(lstPessoa[i].getNome()) + ";" + str(round(total,2)) + "\n")
+            arquivo.write(str(lstpessoa[i].get_nome()) + ";" + str(round(total,2)) + "\n")
 
-    def vendasprod(self, lstProd, lstVendas):
+    @staticmethod
+    def vendasprod(lstprod, lstvendas):
 
         #vendas e lucro por produto
-        FILENAME = os.path.expanduser("~/Documents/GitHub/poo2-trab0/POO2_Trab0_GabrielaBreder_BrunoMergh/ifes/arquivos/")
-        completeName = os.path.join(FILENAME,'WriteVendasPorProduto.txt')
-        arquivo = open(completeName, 'w')
+
+        FILENAME = os.path.expanduser("~/Desktop/poo2-trab1-master/POO2_Trab1_GabrielaBreder_BrunoMergh/ifes/arquivos/")
+        completename = os.path.join(FILENAME,'WriteVendasPorProduto.txt')
+        arquivo = open(completename, 'w')
         arquivo.write("Descricao do Produto;Total de venda bruta;Total de lucro\n")
 
         total= totalp = 0
-        for i in range(len(lstProd)):
-            for j in range(len(lstVendas)):
-                if (lstProd[i].getCod() == lstVendas[j].getProd()):
+        for i in range(len(lstprod)):
+            for j in range(len(lstvendas)):
+                if lstprod[i].get_cod() == lstvendas[j].get_prod():
 
-                    valor = (((lstProd[i].getPctlucro()/100) * lstProd[i].getCusto()) + lstProd[i].getCusto()) * lstVendas[j].getQtd()
-                    perc = ((lstProd[i].getPctlucro()/100) * lstProd[i].getCusto()) * lstVendas[j].getQtd()
+                    valor = (((lstprod[i].get_pctlucro()/100) * lstprod[i].get_custo()) + lstprod[i].get_custo()) * lstvendas[j].get_qtd()
+                    perc = ((lstprod[i].get_pctlucro()/100) * lstprod[i].get_custo()) * lstvendas[j].get_qtd()
 
                 total += valor
                 totalp += perc
                 valor = 0
                 perc = 0
-            arquivo.write(str(lstProd[i].getDesc()) + ";" + str(round(total, 2)) + ";" + str(round(totalp, 2)) + "\n")
+            arquivo.write(str(lstprod[i].get_desc()) + ";" + str(round(total, 2)) + ";" + str(round(totalp, 2)) + "\n")
             total = totalp = 0
 
-    def estoque(self, lstProd, lstVendas, lstComp):
+    @staticmethod
+    def estoque(lstprod, lstvendas, lstcomp):
 
-        FILENAME = os.path.expanduser("~/Documents/GitHub/poo2-trab0/POO2_Trab0_GabrielaBreder_BrunoMergh/ifes/arquivos/")
-        completeName = os.path.join(FILENAME,'WriteEstoque.txt')
-        arquivo = open(completeName, 'w')
+        FILENAME = os.path.expanduser("~/Desktop/poo2-trab1-master/POO2_Trab1_GabrielaBreder_BrunoMergh/ifes/arquivos/")
+        completename = os.path.join(FILENAME,'WriteEstoque.txt')
+        arquivo = open(completename, 'w')
 
-        for i in range(len(lstProd)):
-            for j in range(len(lstComp)):
-                if (lstProd[i].getCod() == lstComp[j].getCodprod()):
-                    lstProd[i].setQtdatual(lstProd[i].getQtdatual() + lstComp[j].getQtd())
+        for i in range(len(lstprod)):
+            for j in range(len(lstcomp)):
+                if lstprod[i].get_cod() == lstcomp[j].get_codprod():
+                    lstprod[i].set_qtdatual(lstprod[i].get_qtdatual() + lstcomp[j].get_qtd())
 
-        for i in range(len(lstProd)):
-            for j in range(len(lstVendas)):
-                if (lstProd[i].getCod() == lstVendas[j].getProd()):
-                    lstProd[i].setQtdatual(lstProd[i].getQtdatual() - lstVendas[j].getQtd())
+        for i in range(len(lstprod)):
+            for j in range(len(lstvendas)):
+                if lstprod[i].get_cod() == lstvendas[j].get_prod():
+                    lstprod[i].set_qtdatual(lstprod[i].get_qtdatual() - lstvendas[j].get_qtd())
 
         arquivo.write("Codigo;Descricao;Quantidade Atual; \n")
-        for i in range(len(lstProd)):
-            if (lstProd[i].getQtdatual() < lstProd[i].getEstmin()):
-                arquivo.write(str(lstProd[i].getCod()) + ";" + str(lstProd[i].getDesc())  + ";" + str(lstProd[i].getQtdatual()) + ";COMPRAR MAIS")
+        for i in range(len(lstprod)):
+            if lstprod[i].get_qtdatual() < lstprod[i].get_estmin():
+                arquivo.write(str(lstprod[i].get_cod()) + ";" + str(lstprod[i].get_desc())  + ";" + str(lstprod[i].get_qtdatual()) + ";COMPRAR MAIS")
                 arquivo.write("\n")
             else:
-                arquivo.write(str(lstProd[i].getCod()) + ";" + str(lstProd[i].getDesc())  + ";" + str(lstProd[i].getQtdatual()) +  ";")
+                arquivo.write(str(lstprod[i].get_cod()) + ";" + str(lstprod[i].get_desc())  + ";" + str(lstprod[i].get_qtdatual()) +  ";")
                 arquivo.write("\n")

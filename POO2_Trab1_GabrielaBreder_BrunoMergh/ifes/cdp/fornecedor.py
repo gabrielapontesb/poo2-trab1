@@ -8,32 +8,32 @@ class Fornecedor:
         self.__cnpj = cnpj
 
 
-    def getNome(self):
+    def get_nome(self):
             return self.__nome
 
-    def setNome(self, nome):
+    def set_nome(self, nome):
             self.__nome = nome
 
-    def getEnd(self):
+    def get_end(self):
             return self.__end
 
-    def setEnd(self, end):
+    def set_end(self, end):
             self.__end = end
 
-    def getTel(self):
+    def get_tel(self):
             return self.__tel
 
-    def setTel(self, tel):
+    def set_tel(self, tel):
             self.__tel = tel
 
-    def getCod(self):
+    def get_cod(self):
             return self.__cod
 
-    def setCod(self, cod):
+    def set_cod(self, cod):
             self.__cod = cod
 
-    def getCnpj(self):
+    def get_cnpj(self):
             return self.__cnpj
 
-    def setCnpj(self, cnpj):
+    def set_cnpj(self, cnpj):
             self.__cnpj = cnpj

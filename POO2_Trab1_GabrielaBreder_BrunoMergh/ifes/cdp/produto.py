@@ -8,38 +8,38 @@ class Produto:
         self.__custo = custo
         self.__pctlucro = pctlucro
 
-    def getCod(self):
+    def get_cod(self):
         return self.__cod
 
-    def setCod(self, cod):
+    def set_cod(self, cod):
         self.__cod = cod
 
-    def getDesc(self):
+    def get_desc(self):
         return self.__desc
 
-    def setDesc(self, desc):
+    def set_desc(self, desc):
         self.__desc = desc
 
-    def getEstmin(self):
+    def get_estmin(self):
         return self.__estmin
 
-    def setEstmin(self, estmin):
+    def set_estmin(self, estmin):
         self.__estmin = estmin
 
-    def getQtdatual(self):
+    def get_qtdatual(self):
         return self.__qtdatual
 
-    def setQtdatual(self, qtdatual):
+    def set_qtdatual(self, qtdatual):
         self.__qtdatual = qtdatual
 
-    def getCusto(self):
+    def get_custo(self):
         return self.__custo
 
-    def setCusto(self, custo):
+    def set_custo(self, custo):
         self.__custo = custo
 
-    def getPctlucro(self):
+    def get_pctlucro(self):
         return self.__pctlucro
 
-    def setPctlucro(self, pctlucro):
+    def set_pctlucro(self, pctlucro):
         self.__pctlucro = pctlucro

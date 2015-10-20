@@ -7,28 +7,28 @@ class Venda:
         self.__prod = prod
         self.__qtd = qtd
         
-    def getCliente(self):
+    def get_cliente(self):
         return self.__cliente
     
-    def setCliente(self, cliente):
+    def set_cliente(self, cliente):
         self.__cliente = cliente
         
-    def getDt(self):
+    def get_dt(self):
         return self.__dt
         
-    def setDt(self):
+    def set_dt(self, dt):
         self.__dt = dt
 
-    def getProd(self):
+    def get_prod(self):
         return self.__prod
 
-    def setProd(self, prod):
+    def set_prod(self, prod):
         self.__prod = prod
 
-    def getQtd(self):
+    def get_qtd(self):
         return self.__qtd
 
-    def setQtd(self, qtd):
+    def set_qtd(self, qtd):
         self.__qtd = qtd
 
 

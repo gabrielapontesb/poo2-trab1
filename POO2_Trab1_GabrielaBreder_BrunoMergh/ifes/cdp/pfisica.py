@@ -6,8 +6,8 @@ class Pfisica(Pessoa):
         super(Pfisica, self).__init__(cod, nome, tel, end)
         self.__cpf = cpf
 
-    def getCpf(self):
+    def get_cpf(self):
         return self.__cpf
 
-    def setCpf(self, cpf):
+    def set_cpf(self, cpf):
         self.__cpf = cpf

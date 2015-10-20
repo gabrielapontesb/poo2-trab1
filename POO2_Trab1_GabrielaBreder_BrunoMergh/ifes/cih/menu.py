@@ -2,9 +2,8 @@ from ifes.cci.control import Control
 
 class Menu():
 
-
-
-    def imprimirMenu(self):
+    @staticmethod
+    def imprimir_menu():
         ctrl = Control()
         print("\n" * 10)
         print("Gerenciamento da Padaria Otarios\n")
@@ -13,7 +12,7 @@ class Menu():
         print("2 - NAO \n")
         resp = int(input("Escolha a opcao desejada: "))
         if resp == 1:
-            ctrl.Controle(3, 0)
+            ctrl.controle(3, 0)
             print("\nUPDATE DO BANCO GERADO COM SUCESSO\n")
 
         print("\n" *2)

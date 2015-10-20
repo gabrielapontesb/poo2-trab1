@@ -1,8 +1,7 @@
 from ifes.cih.menu import Menu
 
 def main():
-    menu = Menu()
-    menu.imprimirMenu()
+    Menu().imprimir_menu()
 
 
 if __name__ == '__main__':

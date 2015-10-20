@@ -9,11 +9,13 @@ from ifes.util.FabricaCompra import FabricaCompra
 
 class Cadastro:
 
-    def PopularBancoCliente(self):
-        FILENAME = os.path.expanduser("~/Documents/GitHub/poo2-trab0/POO2_Trab0_GabrielaBreder_BrunoMergh/ifes/arquivos/cliente.txt")
-        lstCliente = []
-        arqC = open(FILENAME, 'r')
-        conteudo = arqC.readline()
+    @staticmethod
+    def popular_banco_cliente():
+
+        FILENAME = os.path.expanduser("~/Desktop/poo2-trab1-master/POO2_Trab1_GabrielaBreder_BrunoMergh/ifes/arquivos/cliente.txt")
+        lstcliente = []
+        arqc = open(FILENAME, 'r')
+        conteudo = arqc.readline()
         while conteudo != "":
             lstconteudo = conteudo.split(";")
             cod = int(lstconteudo[0])
@@ -21,22 +23,24 @@ class Cadastro:
             tel = int(lstconteudo[2])
             end = lstconteudo[3]
             tipo = lstconteudo[4]
-            if (tipo.upper() == "F"):
+            if tipo.upper() == "F":
                 cpf = lstconteudo[5]
                 p = Pfisica(cod, nome, tel, end, cpf)
-                lstCliente.append(p)
-            elif (tipo.upper() == "J"):
+                lstcliente.append(p)
+            elif tipo.upper() == "J":
                 cnpj = lstconteudo[5]
                 p = Pjuridica(cod, nome, tel, end, cnpj)
-                lstCliente.append(p)
-            conteudo = arqC.readline()
-        return lstCliente
+                lstcliente.append(p)
+            conteudo = arqc.readline()
+        return lstcliente
 
-    def PopularBancoProduto(self):
-        FILENAME = os.path.expanduser("~/Documents/GitHub/poo2-trab0/POO2_Trab0_GabrielaBreder_BrunoMergh/ifes/arquivos/produto.txt")
-        lstProduto = []
-        arqP = open(FILENAME, 'r')
-        conteudo = arqP.readline()
+    @staticmethod
+    def popular_banco_produto():
+
+        FILENAME = os.path.expanduser("~/Desktop/poo2-trab1-master/POO2_Trab1_GabrielaBreder_BrunoMergh/ifes/arquivos/produto.txt")
+        lstproduto = []
+        arqp = open(FILENAME, 'r')
+        conteudo = arqp.readline()
         while conteudo != "":
             lstconteudo = conteudo.split(';')
             cod = int(lstconteudo[0])
@@ -45,16 +49,18 @@ class Cadastro:
             qtdatual = int(lstconteudo[3])
             custo = float(lstconteudo[4])
             pctlucro = float(lstconteudo[5])
-            p = FabricaProduto.CriarProduto(self,cod, desc, estmin, qtdatual, custo, pctlucro)
-            lstProduto.append(p)
-            conteudo = arqP.readline()
-        return lstProduto
+            p = FabricaProduto.criar_produto(cod, desc, estmin, qtdatual, custo, pctlucro)
+            lstproduto.append(p)
+            conteudo = arqp.readline()
+        return lstproduto
 
-    def PopularBancoFornecedor(self):
-        FILENAME = os.path.expanduser("~/Documents/GitHub/poo2-trab0/POO2_Trab0_GabrielaBreder_BrunoMergh/ifes/arquivos/fornecedor.txt")
-        lstFornecedor = []
-        arqF = open(FILENAME, 'r')
-        conteudo = arqF.readline()
+    @staticmethod
+    def popular_banco_fornecedor():
+
+        FILENAME = os.path.expanduser("~/Desktop/poo2-trab1-master/POO2_Trab1_GabrielaBreder_BrunoMergh/ifes/arquivos/fornecedor.txt")
+        lstfornecedor = []
+        arqf = open(FILENAME, 'r')
+        conteudo = arqf.readline()
         while conteudo != "":
             lstconteudo = conteudo.split(';')
             nome = lstconteudo[0]
@@ -62,32 +68,36 @@ class Cadastro:
             tel = int(lstconteudo[2])
             cod = int(lstconteudo[3])
             cnpj = lstconteudo[4]
-            f = FabricaFornecedor.CriarFornecedor(self, nome, end, tel, cod, cnpj)
-            lstFornecedor.append(f)
-            conteudo = arqF.readline()
-        return lstFornecedor
+            f = FabricaFornecedor.criar_fornecedor(nome, end, tel, cod, cnpj)
+            lstfornecedor.append(f)
+            conteudo = arqf.readline()
+        return lstfornecedor
 
-    def PopularBancoVenda(self):
-        FILENAME = os.path.expanduser("~/Documents/GitHub/poo2-trab0/POO2_Trab0_GabrielaBreder_BrunoMergh/ifes/arquivos/venda.txt")
-        lstVenda = []
-        arqV = open(FILENAME, 'r')
-        conteudo = arqV.readline()
+    @staticmethod
+    def popular_banco_venda():
+
+        FILENAME = os.path.expanduser("~/Desktop/poo2-trab1-master/POO2_Trab1_GabrielaBreder_BrunoMergh/ifes/arquivos/venda.txt")
+        lstvenda = []
+        arqv = open(FILENAME, 'r')
+        conteudo = arqv.readline()
         while conteudo != "":
             lstconteudo = conteudo.split(';')
             cliente = int(lstconteudo[0])
             data = lstconteudo[1]
             produto = int(lstconteudo[2])
             qtd = int(lstconteudo[3])
-            v = FabricaVenda.CriarVenda(self, cliente, data, produto, qtd)
-            lstVenda.append(v)
-            conteudo = arqV.readline()
-        return lstVenda
+            v = FabricaVenda.criar_venda(cliente, data, produto, qtd)
+            lstvenda.append(v)
+            conteudo = arqv.readline()
+        return lstvenda
 
-    def PopularBancoCompra(self):
-        FILENAME = os.path.expanduser("~/Documents/GitHub/poo2-trab0/POO2_Trab0_GabrielaBreder_BrunoMergh/ifes/arquivos/compra.txt")
-        lstCompra = []
-        arqC = open(FILENAME, 'r')
-        conteudo = arqC.readline()
+    @staticmethod
+    def popular_banco_compra():
+
+        FILENAME = os.path.expanduser("~/Desktop/poo2-trab1-master/POO2_Trab1_GabrielaBreder_BrunoMergh/ifes/arquivos/compra.txt")
+        lstcompra = []
+        arqc = open(FILENAME, 'r')
+        conteudo = arqc.readline()
         while conteudo != "":
             lstconteudo = conteudo.split(';')
             qtd = int(lstconteudo[0])
@@ -95,22 +105,24 @@ class Cadastro:
             codfornec = int(lstconteudo[2])
             codprod = int(lstconteudo[3])
             dtcompra = lstconteudo[4]
-            c = FabricaCompra.CriarCompra(self, qtd, notafiscal, codfornec, codprod, dtcompra)
-            lstCompra.append(c)
-            conteudo = arqC.readline()
-        return lstCompra
+            c = FabricaCompra.criar_compra(qtd, notafiscal, codfornec, codprod, dtcompra)
+            lstcompra.append(c)
+            conteudo = arqc.readline()
+        return lstcompra
 
-    def cadastraPessoa(self):
+    @staticmethod
+    def cadastra_pessoa():
 
         cod = int(input("Codigo: "))
         nome = input("Nome: ")
         tel = int(input("Telefone: "))
         end = input("Endereco: ")
         tipo = input("F para fisica e J para juridica: ")
-        fabrica = FabricaPessoa.CriarPessoa(self,cod, nome, tel, end, tipo)
+        fabrica = FabricaPessoa.criar_pessoa(cod, nome, tel, end, tipo)
         return fabrica
 
-    def cadastraProduto(self):
+    @staticmethod
+    def cadastra_produto():
 
         cod = int(input("Codigo: "))
         desc = input("Descricao: ")
@@ -118,31 +130,34 @@ class Cadastro:
         qtdatual = int(input("Qtd atual: "))
         custo = float(input("Custo: "))
         pctlucro = int(input("Pct lucro: "))
-        p = FabricaProduto.CriarProduto(self,cod, desc, estmin, qtdatual, custo, pctlucro)
+        p = FabricaProduto.criar_produto(cod, desc, estmin, qtdatual, custo, pctlucro)
         return p
 
-    def cadastraFornecedor(self):
+    @staticmethod
+    def cadastra_fornecedor():
         nome = input("Nome do fornecedor: ")
         end = input("Endereco: ")
         tel = int(input("Telefone: "))
         cod = int(input("Codigo: "))
         cnpj = int(input("Cnpj: "))
-        f = FabricaFornecedor.CriarFornecedor(self,nome, end, tel, cod, cnpj)
+        f = FabricaFornecedor.criar_fornecedor(nome, end, tel, cod, cnpj)
         return f
 
-    def cadastraVenda(self):
+    @staticmethod
+    def cadastra_venda():
         cliente = int(input("Codigo do cliente: "))
         dt = input("Data: ")
         prod = int(input("Codigo do produto: "))
         qtd = int(input("Quantidade: "))
-        v = FabricaVenda.CriarVenda(self, cliente, dt, prod, qtd)
+        v = FabricaVenda.criar_venda(cliente, dt, prod, qtd)
         return v
 
-    def cadastraCompra(self):
+    @staticmethod
+    def cadastra_compra():
         qtd = int(input("Quantidade: "))
         notaf = int(input("Nota fiscal: "))
         codfornec = int(input("Codigo do fornecedor: "))
         codprod = int(input("Codigo do produto: "))
         dtcompra = input("Data: ")
-        c = FabricaCompra.CriarCompra(self, qtd, notaf, codfornec, codprod, dtcompra)
+        c = FabricaCompra.criar_compra(qtd, notaf, codfornec, codprod, dtcompra)
         return c

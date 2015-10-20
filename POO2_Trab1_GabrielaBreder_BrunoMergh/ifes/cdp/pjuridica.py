@@ -6,8 +6,8 @@ class Pjuridica(Pessoa):
         super(Pjuridica, self).__init__(cod, nome, tel, end)
         self.__cnpj = cnpj
 
-    def getCnpj(self):
+    def get_cnpj(self):
         return self.__cnpj
 
-    def setCnpj(self, cnpj):
+    def set_cnpj(self, cnpj):
         self.__cnpj = cnpj

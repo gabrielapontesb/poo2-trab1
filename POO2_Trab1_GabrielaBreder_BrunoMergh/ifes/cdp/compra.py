@@ -7,32 +7,32 @@ class Compra:
 		self.__codprod = codprod
 		self.__dtcompra = dtcompra
 
-	def getQtd(self):
+	def get_qtd(self):
 		return self.__qtd
 
-	def setQtd(self, qtd):
+	def set_qtd(self, qtd):
 		self.__qtd = qtd
 
-	def getNotaf(self):
+	def get_notaf(self):
 		return self.__notaf
 
-	def setNotaf(self, notaf):
+	def set_notaf(self, notaf):
 		self.__notaf = notaf
 
-	def getCodfornec(self):
+	def get_codfornec(self):
 		return self.__codfornec
 
-	def setCodfornec(self, codfornec):
+	def set_codfornec(self, codfornec):
 		self.__codfornec = codfornec
 
-	def getCodprod(self):
+	def get_codprod(self):
 		return self.__codprod
 
-	def setCodprod(self, codprod):
+	def set_codprod(self, codprod):
 		self.__codprod = codprod
 
-	def getDtcompra(self):
+	def get_dtcompra(self):
 		return self.__dtcompra
 
-	def setDtcompra(self, dtcompra):
+	def set_dtcompra(self, dtcompra):
 		self.__dtcompra = dtcompra
