@@ -5,11 +5,10 @@ class Relatorio:
     @staticmethod
     def apagar(lstfornec, lstprod, lstcomp):
 
-        file = os.path.split(os.path.abspath(__file__))[0]
-        diretorio = file.replace("cgd", "")
-        path = os.path.join(diretorio, 'arquivos/', "WriteApagar.txt")
+        FILENAME = os.path.expanduser("~/Desktop/poo2-trab1-master/POO2_Trab1_GabrielaBreder_BrunoMergh/ifes/arquivos/")
+        completename = os.path.join(FILENAME,'WriteApagar.txt')
         #valor devido aos fornecedores
-        arquivo = open(path, 'w')
+        arquivo = open(completename, 'w')
         arquivo.write("Fornecedor;quantia a pagar\n")
         total = 0
         for i in range(len(lstfornec)):
@@ -30,10 +29,9 @@ class Relatorio:
     def areceber(lstpessoa, lstvendas, lstprod):
         #valor total de vendas
 
-        file = os.path.split(os.path.abspath(__file__))[0]
-        diretorio = file.replace("cgd", "")
-        path = os.path.join(diretorio, 'arquivos/', "WriteAreceber.txt")
-        arquivo = open(path, 'w')
+        FILENAME = os.path.expanduser("~/Desktop/poo2-trab1-master/POO2_Trab1_GabrielaBreder_BrunoMergh/ifes/arquivos/")
+        completename = os.path.join(FILENAME,'WriteAreceber.txt')
+        arquivo = open(completename, 'w')
         arquivo.write("Cliente;quantia a receber\n")
 
         total = 0
@@ -54,10 +52,9 @@ class Relatorio:
 
         #vendas e lucro por produto
 
-        file = os.path.split(os.path.abspath(__file__))[0]
-        diretorio = file.replace("cgd", "")
-        path = os.path.join(diretorio, 'arquivos/', "WriteVendasPorProd.txt")
-        arquivo = open(path, 'w')
+        FILENAME = os.path.expanduser("~/Desktop/poo2-trab1-master/POO2_Trab1_GabrielaBreder_BrunoMergh/ifes/arquivos/")
+        completename = os.path.join(FILENAME,'WriteVendasPorProduto.txt')
+        arquivo = open(completename, 'w')
         arquivo.write("Descricao do Produto;Total de venda bruta;Total de lucro\n")
 
         total= totalp = 0
@@ -78,10 +75,9 @@ class Relatorio:
     @staticmethod
     def estoque(lstprod, lstvendas, lstcomp):
 
-        file = os.path.split(os.path.abspath(__file__))[0]
-        diretorio = file.replace("cgd", "")
-        path = os.path.join(diretorio, 'arquivos/', "WriteEstoque.txt")
-        arquivo = open(path, 'w')
+        FILENAME = os.path.expanduser("~/Desktop/poo2-trab1-master/POO2_Trab1_GabrielaBreder_BrunoMergh/ifes/arquivos/")
+        completename = os.path.join(FILENAME,'WriteEstoque.txt')
+        arquivo = open(completename, 'w')
 
         for i in range(len(lstprod)):
             for j in range(len(lstcomp)):

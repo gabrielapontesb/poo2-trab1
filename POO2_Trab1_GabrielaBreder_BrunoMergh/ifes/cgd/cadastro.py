@@ -7,17 +7,14 @@ from ifes.util.FabricaFornecedor import FabricaFornecedor
 from ifes.util.FabricaVenda import FabricaVenda
 from ifes.util.FabricaCompra import FabricaCompra
 
-
 class Cadastro:
 
     @staticmethod
     def popular_banco_cliente():
 
-        file = os.path.split(os.path.abspath(__file__))[0]
-        diretorio = file.replace("cgd", "")
-        path = os.path.join(diretorio, 'arquivos/', "cliente.txt")
+        FILENAME = os.path.expanduser("~/Desktop/poo2-trab1-master/POO2_Trab1_GabrielaBreder_BrunoMergh/ifes/arquivos/cliente.txt")
         lstcliente = []
-        arqc = open(path, 'r')
+        arqc = open(FILENAME, 'r')
         conteudo = arqc.readline()
         while conteudo != "":
             lstconteudo = conteudo.split(";")
@@ -40,11 +37,9 @@ class Cadastro:
     @staticmethod
     def popular_banco_produto():
 
-        file = os.path.split(os.path.abspath(__file__))[0]
-        diretorio = file.replace("cgd", "")
-        path = os.path.join(diretorio, 'arquivos/', "produto.txt")
+        FILENAME = os.path.expanduser("~/Desktop/poo2-trab1-master/POO2_Trab1_GabrielaBreder_BrunoMergh/ifes/arquivos/produto.txt")
         lstproduto = []
-        arqp = open(path, 'r')
+        arqp = open(FILENAME, 'r')
         conteudo = arqp.readline()
         while conteudo != "":
             lstconteudo = conteudo.split(';')
@@ -62,11 +57,9 @@ class Cadastro:
     @staticmethod
     def popular_banco_fornecedor():
 
-        file = os.path.split(os.path.abspath(__file__))[0]
-        diretorio = file.replace("cgd", "")
-        path = os.path.join(diretorio, 'arquivos/', "fornecedor.txt")
+        FILENAME = os.path.expanduser("~/Desktop/poo2-trab1-master/POO2_Trab1_GabrielaBreder_BrunoMergh/ifes/arquivos/fornecedor.txt")
         lstfornecedor = []
-        arqf = open(path, 'r')
+        arqf = open(FILENAME, 'r')
         conteudo = arqf.readline()
         while conteudo != "":
             lstconteudo = conteudo.split(';')
@@ -83,11 +76,9 @@ class Cadastro:
     @staticmethod
     def popular_banco_venda():
 
-        file = os.path.split(os.path.abspath(__file__))[0]
-        diretorio = file.replace("cgd", "")
-        path = os.path.join(diretorio, 'arquivos/', "venda.txt")
+        FILENAME = os.path.expanduser("~/Desktop/poo2-trab1-master/POO2_Trab1_GabrielaBreder_BrunoMergh/ifes/arquivos/venda.txt")
         lstvenda = []
-        arqv = open(path, 'r')
+        arqv = open(FILENAME, 'r')
         conteudo = arqv.readline()
         while conteudo != "":
             lstconteudo = conteudo.split(';')
@@ -103,11 +94,9 @@ class Cadastro:
     @staticmethod
     def popular_banco_compra():
 
-        file = os.path.split(os.path.abspath(__file__))[0]
-        diretorio = file.replace("cgd", "")
-        path = os.path.join(diretorio, 'arquivos/', "compra.txt")
+        FILENAME = os.path.expanduser("~/Desktop/poo2-trab1-master/POO2_Trab1_GabrielaBreder_BrunoMergh/ifes/arquivos/compra.txt")
         lstcompra = []
-        arqc = open(path, 'r')
+        arqc = open(FILENAME, 'r')
         conteudo = arqc.readline()
         while conteudo != "":
             lstconteudo = conteudo.split(';')
@@ -123,7 +112,6 @@ class Cadastro:
 
     @staticmethod
     def cadastra_pessoa():
-
 
         cod = int(input("Codigo: "))
         nome = input("Nome: ")
