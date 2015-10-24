@@ -1,0 +1,6 @@
+Codigo;Descricao;Quantidade Atual; 
+0;leite;4;
+1;pao doce;5;
+2;pao de sal;6;
+3;po de cafe;3;
+4;miojo;5;
