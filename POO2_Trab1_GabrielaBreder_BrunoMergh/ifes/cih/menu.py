@@ -6,7 +6,7 @@ class Menu():
     def imprimir_menu():
         ctrl = Control()
         print("\n" * 10)
-        print("Gerenciamento da Padaria Otarios\n")
+        print("Gerenciamento da Padaria Padoca\n")
         print("Deseja fazer upload do banco de dados?\n")
         print("1 - SIM ")
         print("2 - NAO \n")
@@ -16,7 +16,7 @@ class Menu():
             print("\nUPDATE DO BANCO GERADO COM SUCESSO\n")
 
         print("\n" *2)
-        print("Gerenciamento da Padaria Otarios\n")
+        print("Gerenciamento da Padaria Padoca\n")
         print("1 - Cadastrar")
         print("2 - Relatorios")
         print("3 - Sair\n")
@@ -27,7 +27,7 @@ class Menu():
         while operacao.lower() != 'n':
             if opcao == 1:
                 print('\n' * 50)
-                print("Gerenciamento da Padaria Otarios\n")
+                print("Gerenciamento da Padaria Padoca\n")
                 print("1 - Cadastrar Cliente")
                 print("2 - Cadastrar Fornecedor")
                 print("3 - Cadastrar Produto")
@@ -37,34 +37,35 @@ class Menu():
 
                 if opcao2 == 1:
                     print("\n" * 40)
-                    print("Gerenciamento da Padaria Otarios\n")
+                    print("Gerenciamento da Padaria Padoca\n")
                     print("Cadastrar Cliente\n")
-                    ctrl.Controle(opcao, opcao2)
+                    ctrl.controle(opcao, opcao2)
+
 
                 elif opcao2 == 2:
                     print("\n" * 40)
-                    print("Gerenciamento da Padaria Otarios\n")
+                    print("Gerenciamento da Padaria Padoca\n")
                     print("Cadastrar Fornecedor\n")
-                    ctrl.Controle(opcao, opcao2)
+                    ctrl.controle(opcao, opcao2)
 
                 elif opcao2 == 3:
                     print("\n" * 40)
                     print("Gerenciamento da Padaria Padoca\n")
                     print("Cadastrar Produto\n")
-                    ctrl.Controle(opcao, opcao2)
+                    ctrl.controle(opcao, opcao2)
 
                 elif opcao2 == 4:
                     print("\n" * 40)
                     print("Gerenciamento da Padaria Padoca\n")
                     print("Cadastrar Venda\n")
-                    ctrl.Controle(opcao, opcao2)
+                    ctrl.controle(opcao, opcao2)
                     print("Venda cadastrada com sucesso\n")
 
                 elif opcao2 == 5:
                     print("\n" * 40)
                     print("Gerenciamento da Padaria Padoca\n")
                     print("Cadastrar Compra\n")
-                    ctrl.Controle(opcao, opcao2)
+                    ctrl.controle(opcao, opcao2)
                     print("Compra cadastrada com sucesso\n")
 
             elif opcao == 2:
@@ -80,31 +81,31 @@ class Menu():
                 if opcao2 == 1:
                     print("\n" * 40)
                     print("Gerenciamento da Padaria Padoca\n")
-                    ctrl.Controle(opcao, opcao2)
+                    ctrl.controle(opcao, opcao2)
                     print("Relatorio gerado com sucesso\n")
 
                 elif opcao2 == 2:
                     print("\n" * 40)
                     print("Gerenciamento da Padaria Padoca\n")
-                    ctrl.Controle(opcao, opcao2)
+                    ctrl.controle(opcao, opcao2)
                     print("Relatorio gerado com sucesso\n")
 
                 elif opcao2 == 3:
                     print("\n" * 40)
                     print("Gerenciamento da Padaria Padoca\n")
-                    ctrl.Controle(opcao, opcao2)
+                    ctrl.controle(opcao, opcao2)
                     print("Relatorio gerado com sucesso\n")
 
                 elif opcao2 == 4:
                     print("\n" * 40)
                     print("Gerenciamento da Padaria Padoca\n")
-                    ctrl.Controle(opcao, opcao2)
+                    ctrl.controle(opcao, opcao2)
                     print("Relatorio gerado com sucesso\n")
 
                 elif opcao2 == 5:
                     print("\n" * 40)
                     print("Gerenciamento da Padaria Padoca\n")
-                    ctrl.Controle(opcao, opcao2)
+                    ctrl.controle(opcao, opcao2)
                     print("Relatorio gerado com sucesso\n")
 
             elif opcao == 3:
